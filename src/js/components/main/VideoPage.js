@@ -7,15 +7,7 @@ class VideoPage extends Component{
 	constructor(props){
 		super(props);
 	}
-	
-	_lessMore(str, less){
-		if(less){
-			return s.slice(0, 20) + '...';
-	    } else {
-			return s.slice(0, s.length);
-		}
-	}
-	
+
 	_renderVideos(){
 		return this.props.videos.map( video => (
 			<Video key={video.id} {...video} />
@@ -24,17 +16,14 @@ class VideoPage extends Component{
 
 	render(){
 		return (
-			<div className="row">
-				<div className="col-md-12">
-					{this._renderVideos()}
-				</div>
+			<div>
+				{this._renderVideos()}
 			</div>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
-console.log('%c state: ', 'background:orange', state);
 	return {
 		videos 		: state.videos,
 		loading 	: state.isVideosLoading

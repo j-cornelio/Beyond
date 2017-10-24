@@ -1,17 +1,25 @@
 import React      from 'react';
 import { Link }   from 'react-router';
+import Shorten    from './Shorten';
 
-const Video = ({snippet, id}) => {
+function lessMore(str, less){
+  if(less){
+    return str.slice(0, 200) + '...';
+    } else {
+    return str;
+  }
+}
 
-  var thumbs = snippet.thumbnails ? snippet.thumbnails.medium.url : 'none'
-  console.log('%c id: ', 'background:beige', id);
+const Video = ({snippet, id, show}) => {
+
+  var thumbs = snippet.thumbnails ? snippet.thumbnails.medium.url : 'none';
 
 	return (
-    <div className="row">
+    <div className="row video-row">
       <div className="col-sm-6 col-sm-push-6">
         <h3>{snippet.title}</h3>
         <h4>Published on {snippet.publishedAt.slice(0, 10)}</h4>
-        <p className="hidden-xs">{snippet.description.slice(0, 200) + "..."}</p>
+        <p className="hidden-xs"><Shorten str={snippet.description} /></p>
       </div>
 
       <div className="col-sm-6 col-sm-pull-6">

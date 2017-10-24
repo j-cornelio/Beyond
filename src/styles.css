@@ -37,6 +37,9 @@
 	margin: 0 auto;
   display: block;
 }
+.video-row {
+  margin-bottom: 20px;
+}
 .container h3 {
   margin-top: 0;
 }
