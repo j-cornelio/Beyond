@@ -18,3 +18,12 @@ export const isVideosLoading = (state=[], action) => {
 			return state;
 	}
 }
+export const singleVideoReducer = (state=[], action) => {
+	switch(action.type){
+		case actionTypes.FETCH_SINGLE_VIDEO:
+			return action.video;
+			
+		default:
+			return state;
+	}
+}

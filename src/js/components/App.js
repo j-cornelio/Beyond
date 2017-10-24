@@ -1,7 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router';
-// Link component is just anchor to match it's path and Route path to load JSX UI Component in prop.children
-
 
 const App = (props) => {
 	return (

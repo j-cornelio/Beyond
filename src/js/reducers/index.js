@@ -1,8 +1,9 @@
 import { combineReducers } 					from 'redux';
-import { videosReducer, isVideosLoading } 	from './videoReducers';
+import { videosReducer, singleVideoReducer, isVideosLoading } 	from './videoReducers';
 
 export default combineReducers({
-	videos 			: videosReducer,
+	videos 				: videosReducer,
+	singleVideo 		: singleVideoReducer,
 	isVideosLoading
 })
 

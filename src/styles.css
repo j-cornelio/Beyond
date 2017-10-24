@@ -46,6 +46,6 @@
 /* Customize container */
 @media (min-width: 48em) {
   .container {
-    max-width: 70rem;
+    max-width: 100rem;
   }
 }

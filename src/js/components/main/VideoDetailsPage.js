@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { Component }   from 'react';
+import {connect}              from 'react-redux';
+import * as videoActions      from '../../actions/videoActions';
+import VideoDetails           from './VideoDetails'
 
-const BookDetails = ({book, addToCart}) => {
-	return (
-		<div className="media">
-			<div className="media-left">
-        <a href="#">
-          <img className="media-object" src="http://placehold.it/200/450" alt="Placehold" />
-        </a>
+class VideoDetailsPage extends Component{
+  constructor(props){
+    super(props);
+  }
+  componentWillMount(){ 
+    this.props.fetchSingleVideo();
+  }
+  render(){
+    return (
+      <div>
+        <VideoDetails video={this.props.singleVideo.items} />
       </div>
-      <div className="media-body">
-          <h4 className="media-heading">{book.title}</h4>
-          <ul>
-            <li><stron>Author: </stron> {book.author}</li>
-            <li><stron>Price: </stron> ${book.price}</li>
-            <li><stron>Year: </stron> {book.year}</li>
-            <br/>
-            <button className="btn btn-primary" onClick={() => addToCart(book)}>Buy</button>
-          </ul>
-        </div>
-		</div>
-	)
+    )
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+    singleVideo: state.singleVideo
+  }
 }
 
-export default BookDetails;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchSingleVideo   : () => dispatch( videoActions.fetchSingleVideo() ),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)( VideoDetailsPage )
