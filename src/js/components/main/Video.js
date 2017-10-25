@@ -2,14 +2,14 @@ import React      from 'react';
 import { Link }   from 'react-router';
 import ShowMore   from 'react-show-more';
 
-const Video = ({snippet, id}) => {
+const Video = ({snippet, imgId}) => {
 
   var thumbs = (snippet.thumbnails) ? snippet.thumbnails.medium.url : '../images/no-video.png';
 
 	return (
     <div className="row video-row">
       <div className="col-sm-8 col-sm-push-4">
-        <h3><Link to={`/${id}`}>{snippet.title}</Link></h3>
+        <h3><Link to={`/${imgId}`}>{snippet.title}</Link></h3>
         <h4>Published on {snippet.publishedAt.slice(0, 10)}</h4>
         <div className="hidden-xs">
           <ShowMore
@@ -23,7 +23,7 @@ const Video = ({snippet, id}) => {
       </div>
 
       <div className="col-sm-4 col-sm-pull-8">
-        <Link to={`/${id}`}><img src={thumbs} /></Link>
+        <Link to={`/${imgId}`}><img src={thumbs} /></Link>
       </div>
     </div>
 	)

@@ -3,6 +3,8 @@ import * as actionTypes from './actionTypes';
 
 const APIURL      = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status&maxResults=10&playlistId=PLSi28iDfECJPJYFA4wjlF5KUucFvc0qbQ&key=AIzaSyCuv_16onZRx3qHDStC-FUp__A6si-fStw';
 const SINGLEVIDEO = 'https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,status&id=g7gutsi1uT4&key=AIzaSyCuv_16onZRx3qHDStC-FUp__A6si-fStw';
+const VIDEO1      = 'https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,status&id=';
+const VIDEO2      = '&key=AIzaSyCuv_16onZRx3qHDStC-FUp__A6si-fStw';
 
 export const fetchVideos = () => {
   return (dispatch) => {
@@ -45,7 +47,8 @@ export const isVideosLoading = (bool) => {
  //BookDetailsPage 
 export const fetchSingleVideo = (id) => {
   return (dispatch) => {
-    return request.get(SINGLEVIDEO) 
+    return request.get(VIDEO1 + id + VIDEO2) 
+    //return request.get(SINGLEVIDEO) 
       .then( response => {
         dispatch(fetchSingleVideoSuccess(response.body)) //once resolved dispatched
       })

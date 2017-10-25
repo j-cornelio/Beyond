@@ -1,14 +1,14 @@
 import React, { Component }   from 'react';
 import {connect}              from 'react-redux';
 import * as videoActions      from '../../actions/videoActions';
-import VideoDetails           from './VideoDetails'
+import VideoDetails           from './VideoDetails';
 
 class VideoDetailsPage extends Component{
   constructor(props){
     super(props);
   }
   componentWillMount(){ 
-    this.props.fetchSingleVideo();
+    this.props.fetchSingleVideo(this.props.params.id);
   }
   render(){
     return (
@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchSingleVideo   : () => dispatch( videoActions.fetchSingleVideo() ),
+    fetchSingleVideo   : (id) => dispatch( videoActions.fetchSingleVideo(id) ),
   }
 }
 

@@ -9,9 +9,10 @@ class VideoPage extends Component{
 	}
 
 	_renderVideos(){
-		return this.props.videos.map( video => (
-			<Video key={video.id} {...video} />
-		))
+		return this.props.videos.map( video => {
+			var imgId = video.snippet.thumbnails ? video.snippet.thumbnails.default.url.slice(23, 34) : '';
+			return <Video key={video.id} {...video} imgId={imgId} />
+		})
 	}
 
 	render(){
