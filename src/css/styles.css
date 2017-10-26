@@ -1,0 +1,16 @@
+#loader {
+  width: 200px;
+  height: 180px;
+  margin: 0 auto;
+  display: block; }
+
+.video-row {
+  margin-bottom: 20px; }
+
+.container h3 {
+  margin-top: 0; }
+
+/* Customize container */
+@media (min-width: 48em) {
+  .container {
+    max-width: 100rem; } }
