@@ -13,7 +13,7 @@ class VideoDetailsPage extends Component{
   render(){
     return (
       <div>
-        <VideoDetails video={this.props.singleVideo.items} />
+        <VideoDetails video={this.props.singleVideo.items} videoId={this.props.params.id} />
       </div>
     )
   }

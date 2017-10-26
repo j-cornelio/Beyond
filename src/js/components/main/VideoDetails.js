@@ -1,10 +1,11 @@
 import React      from 'react';
 import { Link }   from 'react-router';
-import PropTypes      from 'prop-types';
+import PropTypes  from 'prop-types';
+import LoaderHOC  from '../HOC/LoaderHOC';
 
-const VideoDetails = ({video}) => {
-  if(!!video){
-    var { description, thumbnails, title, publishedAt } =  video[0].snippet;
+//@LoaderHOC - decorates the class name.  needs class
+const VideoDetails = ({video, videoId}) => {
+  var { description, thumbnails, title, publishedAt } =  video[0].snippet;
     return (
       <div className="row video-row" id="VideoDetails">
         <div className="col-sm-6 col-sm-push-6">
@@ -16,16 +17,18 @@ const VideoDetails = ({video}) => {
         </div>
 
         <div className="col-sm-6 col-sm-pull-6">
-          <img src={thumbnails.high.url} />
+          <a href={'https://www.youtube.com/watch?v=' + videoId} target="_blank">
+            <img src={thumbnails.high.url} />
+          </a>
         </div>
       </div>
     )
-  }else{
-    return <h1>loading</h1>
   }
-}
 
-export default VideoDetails;
+//wrapped it into an HOC, making func call
+export default LoaderHOC('video')(VideoDetails);
+
+//decoractors lets you use HOC in a different way
 
 VideoDetails.propTypes = {
   video: PropTypes.array,
