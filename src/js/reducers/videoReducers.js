@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 export const videosReducer = (state=[], action) => {
 	switch(action.type){
 		case actionTypes.FETCH_VIDEO_SUCCESS:
+console.log('videosReducer TESTING: ', action.videos);
 			return action.videos.items;
 
 		default: 

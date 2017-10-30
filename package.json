@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-react-html-attrs": "^2.0.0",
@@ -16,6 +17,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
+    "jest": "^21.2.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^5.0.6",
@@ -36,7 +38,8 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --content-base src --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "postinstall": "webpack -p"
   },
   "author": "",
   "license": "ISC"

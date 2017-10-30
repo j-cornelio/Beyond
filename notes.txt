@@ -1,0 +1,32 @@
+console.log('%c xxx: ', 'background:beige', xxx);
+................................................
+
+//index html is root
+webpack-dev-server --content-base src
+
+//loads app into an iframe
+
+function lessMore(str, less){
+  if(less){
+    return str.slice(0, 200) + '...';
+    } else {
+    return str;
+  }
+}
+
+<p className="hidden-xs" onClick={show.bind(null, snippet.description, snippet.description.length)}>{lessMore(snippet.description, snippet.description.length > 200)}</p>
+
+
+
+-------------------------------------------
+API - an Interface used by an Appliaction to interact with an Application
+
+Developers write Programs that consume APIs
+
+when type on key is an API on operating system, which is code, gives information to the focus program in the computer.
+----------------------------------------------
+
+http://localhost:8080/webpack-dev-server/index.html
+
+all these so called sacred books are written by man to control our instinctive animal nature.  
+
